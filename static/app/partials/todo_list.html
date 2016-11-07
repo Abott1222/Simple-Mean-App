@@ -1,0 +1,21 @@
+<div class="right-button"><a href ng-href="#/recipes">Back ↩</a></div>
+
+<div>
+ 	<div>
+ 		<h1> Total todos = {{getTotalTodos()}} </h1>
+ 	</div>
+ 	<ul>
+ 		<li ng-repeat = "todo in todoList">
+ 			<input type="checkbox" ng-model = "todo.done" placeholder="What should I do?">
+ 			<!--note use of ng-href, could not do varaible substitution without this...  -->
+ 			<span class = "done-{{todo.done}}"><a href ng-href="#/todos/{{todo.id}}"> {{todo.id}} -- {{(todo.category)}} </a></span>
+ 		</li>
+ 	</ul>
+ 	</div>
+ 	<form>
+ 		<input ng-model= "new_todo.id" placeholder="type id here">
+ 		<button ng-click = "addTodo(new_todo)">
+ 		Add</button>
+ 	</form>
+ 	<button class="btn-large" ng-click= "clearCompleted()"> Clear Completed </button>
+ </div>
