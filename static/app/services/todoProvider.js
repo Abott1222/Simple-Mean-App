@@ -15,10 +15,20 @@
         };
 
 
-        this.addRecipe = function (recipe_data) {
+        this.addTodo = function (todo_data, callback) {
+            $http.put(this._server_host + "/v1/todoList.json", todo_data)
+                .success(function(data, status, headers, conf) {
+                    callback(null,data);
+                })
+                //in this case of error, the data is the error...
+                .error(function(data, status, headers, conf) {
+                    callback(data);
+                })
+
+
         };
 
-        this.getTodoById = function (todo_id) {
+        this.getTodoById = function (todo_id, callback) {
             console.log("Made it to getTodoById");
             console.log("Todo id is: " + todo_id);
             $http.get(this._server_host + "/v1/todoList/" + todo_id + ".json")

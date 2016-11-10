@@ -6,7 +6,7 @@
         $scope.finished_loading = false;
         $scope.page_load_error = null;
 
-        todoProvider.getRecipeById($routeParams.todo_id, function (err, todo) {
+        todoProvider.getTodoById($routeParams.todo_id, function (err, todo) {
             $scope.finished_loading = true;
             if (err) {
                 $scope.page_load_error = "Unable to load recipe: " + JSON.stringify(err);
